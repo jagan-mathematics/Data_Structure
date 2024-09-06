@@ -1,5 +1,9 @@
 #include <iostream>
+#include <random>
+#include <ctime>
+
 #include "tim_sort.h"
+#include "basicSorting.h"
 
 using namespace std;
 void printArray(int arr[], int n)
@@ -45,26 +49,29 @@ int main(){
 
 
 
-    // BasicSorting algo testing
-    std::vector<int> arr1 = {64, 25, 12, 22, 11, 64, 25, 12, 22, 11, 64, 25, 12, 22, 11, 64, 25, 12, 22, 11, 64, 25, 12, 22, 11, 64, 25, 12, 22, 11, 64, 25, 12, 22, 11, 64, 25, 12, 22, 11, 64, 25, 12, 22, 11, 64, 25, 12, 22, 11, 64, 25, 12, 22, 11, 64, 25, 12, 22, 11, 64, 25, 12, 22, 11, 64, 25, 12, 22, 11, 64, 25, 12, 22, 11, 64, 25, 12, 22, 11};
+    size_t data_size = 10000;  // Size of the dataset (e.g., 1 million elements)
+    int min_value = 1;
+    int max_value = 100;
+    std::vector<int> arr1 = generateRandomDataset(data_size, min_value, max_value);
     std::vector<int> arr2 = arr1;
     std::vector<int> arr3 = arr1;
+    std::vector<int> arr4 = arr1;
+    std::vector<int> arr5 = arr1;
+    std::vector<int> arr6 = arr1;
 
-    std::cout << "Original array: ";
-    printArray<int>(arr1);
+    std::cout << "Original array size: " << arr1.size() << std::endl;
 
 
     measureTime(basicSorting<int>::selectSort, arr1, "Selection Sort");
-    std::cout << "Sorted array (Selection Sort): ";
-    printArray<int>(arr1);
-
 
     // Measure time for Bubble Sort (bubble sort will takes more time compared to all other because of its continuous swapping)
     measureTime(basicSorting<int>::bubbleSort, arr3, "Bubble Sort");
-    std::cout << "Sorted array (Bubble Sort): ";
-    printArray<int>(arr3);
 
     measureTime(basicSorting<int>::insertSort, arr2, "Insertion Sort");
-    std::cout << "Sorted array (Insertion Sort): ";
-    printArray<int>(arr2);
+
+    measureTime(basicSorting<int>::mergeSort, arr4, "Merge Sort");
+
+    measureTime(basicSorting<int>::quickSort, arr5, "Quick Sort");
+
+    measureTime(basicSorting<int>::quickSortM, arr6, "Quick Sort (Optimized)");
 }
