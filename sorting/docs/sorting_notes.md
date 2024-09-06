@@ -32,5 +32,14 @@ For an array size of 1,000,000:
 - **Insertion Sort:** 2,611,202,327 microseconds
 - **Merge Sort:** 344,015 microseconds
 
+For an array size of 10,000:
+- **Selection Sort:** 1,38,535 microseconds
+- **Bubble Sort:** 3,61,683 microseconds
+- **Insertion Sort:** 86,180 microseconds
+- **Merge Sort:** 1,691 microseconds
+- **Quick Sort:** 7,793 microseconds
+- **Quick Sort (Optimized):** took 3229 microseconds.
+
+
 As shown, Merge Sort performs significantly better on large arrays compared to other simple sorting algorithms, demonstrating the importance of selecting the appropriate algorithm based on the input size and memory constraints.
 
