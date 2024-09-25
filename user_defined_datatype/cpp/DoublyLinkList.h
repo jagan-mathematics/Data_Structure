@@ -156,14 +156,6 @@ public:
 
 
     void insertValue(T value, int position) {
-        if (head == nullptr){
-            if (position == 1){
-                // push front of the list
-                pushFront(value);
-            }
-            return;
-        }
-
         if (position == 1){
             pushFront(value);
             return;
